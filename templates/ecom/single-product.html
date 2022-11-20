@@ -1,0 +1,100 @@
+{% extends 'ecom/base.html' %}
+{% block title %} Panmucyber store | Product-Detail {% endblock %}
+{% block content %}
+            <!-- Begin Li's Breadcrumb Area -->
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="breadcrumb-content">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Single Product</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Breadcrumb Area End Here -->
+
+            <!-- content-wraper start -->
+            <div class="content-wraper">
+                <div class="container">
+                    <div class="row single-product-area">
+                        {% if product.pk %}
+                        <div class="col-lg-5 col-md-6">
+                           <!-- Product Details Left -->
+                            <div class="product-details-left">
+                                <div class="product-details-images slider-navigation-1">
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="{{ product.image.url }}" alt="{{ product.name }}" data-gall="myGallery">
+                                            <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!--// Product Details Left -->
+                        </div>
+
+                        <div class="col-lg-7 col-md-6">
+                            <div class="product-details-view-content pt-60">
+                                <div class="product-info">
+                                    <h2>{{ product.name }}</h2>
+                                    <div class="rating-box pt-20">
+                                        <ul class="rating rating-with-review-item">
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="price-box pt-20">
+                                        <span class="new-price new-price-2">Ksh. {{ product.price }}</span>
+                                    </div>
+                                    <div class="product-desc">
+                                        <p>
+                                            <span>{{ product.description }}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="single-add-to-cart">
+                                        <form action="/#{{ product.pk }}" method="POST" class="cart-quantity">
+                                            {% csrf_token %}
+
+
+                                            <input type="hidden" value="{{ product.pk }}" name="product">
+                                            <a class="add-to-cart btn btn-warning" href="/cart">Go to cart </a>
+                                            <br><br>
+                                            <input style="background:#00b5e2 !important" class="add-to-cart btn btn-primary" type="submit" value="Add to cart">
+                                        </form>
+                                    </div>
+
+                                    <div class="block-reassurance">
+                                        <ul>
+                                            <li>
+                                                <div class="reassurance-item">
+                                                    <div class="reassurance-icon">
+                                                        <i class="fa fa-truck"></i>
+                                                    </div>
+                                                    <p>Delivery policy</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="reassurance-item">
+                                                    <div class="reassurance-icon">
+                                                        <i class="fa fa-exchange"></i>
+                                                    </div>
+                                                    <p> Return policy</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- content-wraper end -->
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'ecom/base.html' %}
+{% load widget_tweaks %}
+{% block title %} Address || PanmuCyber Store{% endblock %}
+{% block content %}
+            <!-- Begin Li's Breadcrumb Area -->
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="breadcrumb-content">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Billing Information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Breadcrumb Area End Here -->
+
+            <!-- Begin Login Content Area -->
+            <div class="page-section mb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                            {%if product_in_cart%}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="login-form">
+                                    <h4 class="login-title">Billing Information</h4>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>Email <span class="required">*</span></label>
+                                            {% render_field addressForm.Email class="field-long" placeholder="Email" %}
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <label>Mobile <span class="required">*</span></label>
+                                            {% render_field addressForm.Mobile class="field-long" placeholder="Mobile" %}
+
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>Delivery Address <span class="required">*</span></label>
+                                            {% render_field addressForm.Address id="field5" class="field-long field-textarea" placeholder="Building Number,city, pin" %}
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <input style="background:#00b5e2; color:black" type="submit" value="Proceed To Pay" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            {%else%}
+                            <br><br>
+                            <h1 style="text-align:center; color:red;"> First Add Product In Cart </h1>
+                            <br><br><br><br><br><br><br><br><br><br>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Content Area End Here -->
+
+ {% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'ecom/base.html' %}
+
+{% block title %} Panmucyber Store - Cart {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for p in products %}
+                {% if p %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img height="80px" width="100px" src="{{ p.product_image.url }}" alt=""></td>
+                    <td>{{ p.name }}</td>
+                    <td>Ksh. {{ p.price }}</td>
+
+                    <td>
+                    	<a href="cart?increase={{ product.id }}" class="btn btn-sm btn-warning">+</a>
+                        <a href="cart?decrease={{ product.id }}" class="btn btn-sm btn-danger">-</a>
+                    </td>
+                    <th><a class="btn btn-danger btn-xs" href="{% url 'remove-from-cart' p.id  %}"><span class="glyphicon glyphicon-trash"></span></a></th>
+                {%else%}
+                    <br><br><br>
+                    <h1>No cart added</h1>
+                    {% endif %}
+            {% endfor %}
+                </tr>
+            </tbody>
+            <tfoot>
+            	<tr>
+            		<td colspan="5"></td>
+            		<td colspan="1"><strong>Total : </strong></td>
+            		<td>Ksh. {{total}}</td>
+            	</tr>
+            </tfoot>
+        </table>
+    </div>
+    <hr>
+    <div class="float-right">
+        <!-- Button trigger modal -->
+        <br><br><br>
+            <div style="text-align: center;">
+              <button class="btn btn-danger btn-lg">Total Ksh. {{total}}</button>
+              <a href="/customer-address"><button class="btn btn-success btn-lg" ><span>Purchase </span></button></a>
+            </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Billing Information</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Open M-PESA menu
+                <span class="badge badge-primary badge-pill">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Select – Buy goods and services.
+                <span class="badge badge-primary badge-pill">2</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Select- Use M-PESA Till Number.
+                <span class="badge badge-primary badge-pill">3</span>
+              </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Enter the merchant's M-PESA Till number.
+                <span class="badge badge-primary badge-pill">4</span>
+              </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Confirm transaction using your M-PESA PIN.
+                <span class="badge badge-primary badge-pill">5</span>
+              </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Once you receive your M-PESA confirmatory message, Fill in the Billing information and Enter the M-PESA code below.
+                <span class="badge badge-primary badge-pill">6</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-body">
+            <form action="/checkout" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input name="address" type="text" class="form-control" id="address" placeholder="Pick up location">
+                </div>
+                <div class="form-group">
+                    <label for="address">Mpesa Code</label>
+                    <input name="mpesa" type="text" class="form-control" id="address" placeholder="e.g QJF1X2INA5">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input name="phone" type="number" class="form-control" id="phone" placeholder="Enter phone">
+                </div>
+                <div class="float-right">
+                    <input type="submit" value="Pay now" class="btn btn-success">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+{% endblock %}

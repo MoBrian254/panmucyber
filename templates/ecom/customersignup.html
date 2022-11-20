@@ -1,0 +1,76 @@
+{% extends 'ecom/base.html' %}
+{% load widget_tweaks %}
+{% block title %} Signup || PanmuCyber Store{% endblock %}
+{% block content %}
+            <!-- Begin Li's Breadcrumb Area -->
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="breadcrumb-content">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Signup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Breadcrumb Area End Here -->
+
+            <!-- Begin Login Content Area -->
+            <div class="page-section mb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                {% if error %}
+                                <small style="color:red"> {{ error.field_error }} </small>
+                                <small style="color:green"> {{ error.success }} </small>
+                                {% endif %}
+                                {% csrf_token %}
+                                <div class="login-form">
+                                    <h4 class="login-title">Register</h4>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>First Name</label>
+                                            {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <label>Last Name</label>
+                                            {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>UserName</label>
+                                            {% render_field userForm.username class="form-control" placeholder="Username" %}
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <label>Password</label>
+                                            {% render_field userForm.password class="form-control" placeholder="Password" %}
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>Address</label>
+                                            {% render_field customerForm.address class="form-control" placeholder="Address" %}
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>Email</label>
+                                            {% render_field customerForm.email class="form-control" placeholder="Email" %}
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <label>Phone</label>
+                                            {% render_field customerForm.mobile class="form-control" placeholder="Contact" %}
+                                        </div>
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>Profile Photo</label>
+                                            {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <input style="background:#00b5e2; color:black" type="submit" name="" value="Create">
+                                            </div>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Content Area End Here -->
+
+ {% endblock %}

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- new head links -->
+    <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+        <!-- Material Design Iconic Font-V2.2.0 -->
+        <link rel="stylesheet" href="{% static 'css/material-design-iconic-font.min.css' %}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <!-- Font Awesome Stars-->
+        <link rel="stylesheet" href="{% static 'css/fontawesome-stars.css' %}">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <!-- Slick Carousel CSS -->
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <!-- Jquery-ui CSS -->
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+        <!-- Venobox CSS -->
+        <link rel="stylesheet" href="{% static 'css/venobox.css' %}">
+        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        <!-- Bootstrap V4.1.3 Fremwork CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <!-- Helper CSS -->
+        <link rel="stylesheet" href="{% static 'css/helper.css' %}">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+        <!-- Modernizr js -->
+        <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+        <!-- Send Mail -->
+        <script src="{% static 'js/mail.js' %}"></script>
+    <style>
+       body {
+            background-color: #f7f7f7;
+        }
+
+        #navbar {
+            background-color: #3e454c;
+            color: black;
+        }
+
+        .row1 {
+            padding-top: 10px;
+            padding-right: 50px
+        }
+
+        .row2 {
+            padding-bottom: 20px
+        }
+
+        .navbar-input {
+            padding: 11px 16px;
+            border-radius: 2px 0 0 2px;
+            border: 0 none;
+            outline: 0 none;
+            font-size: 15px
+        }
+
+        .navbar-button {
+            background-color: #e5bc41;
+            border: 1px solid #e5bc41;
+            border-radius: 0 2px 2px 0;
+            color: #565656;
+            padding: 10px 0;
+            height: 43px;
+            cursor: pointer
+        }
+
+        .cart-button {
+            /* background-color: #bfbfbf; */
+            background-color: #E5BC41;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
+            padding: 10px 0;
+            text-align: center;
+            height: 41px;
+            border-radius: 2px;
+            font-weight: 500;
+            width: 120px;
+            display: inline-block;
+            color: #FFFFFF;
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            outline: none
+        }
+
+        .cart-button:hover {
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer
+        }
+
+        .cart-svg {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 8px
+        }
+
+        .item-number {
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, .1);
+            height: 20px;
+            padding: 3px 6px;
+            font-weight: 500;
+            display: inline-block;
+            color: #fff;
+            line-height: 12px;
+            margin-left: 10px
+        }
+
+        .upper-links {
+            display: inline-block;
+            padding: 0 11px;
+            line-height: 23px;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0;
+            color: inherit;
+            border: none;
+            outline: none;
+            font-size: 12px
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0px
+        }
+
+        .dropdown:hover {
+            background-color: #fff
+        }
+
+        .dropdown:hover .links {
+            color: #000
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block
+        }
+
+        .dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            display: none;
+            background-color: #fff;
+            color: #333;
+            left: 0px;
+            border: 0;
+            border-radius: 0;
+            box-shadow: 0 4px 8px -3px #555454;
+            margin: 0;
+            padding: 0px
+        }
+
+        .links {
+            color: #fff;
+            text-decoration: none
+        }
+
+        .links:hover {
+            color: #fff;
+            text-decoration: none
+        }
+
+        .profile-links {
+            font-size: 12px;
+            font-family: 'Roboto', sans-serif;
+            border-bottom: 1px solid #e9e9e9;
+            box-sizing: border-box;
+            display: block;
+            padding: 0 11px;
+            line-height: 23px
+        }
+
+        .profile-li {
+            padding-top: 2px
+        }
+
+        .largenav {
+            display: none
+        }
+
+        .smallnav {
+            display: block
+        }
+
+
+        .menu {
+            cursor: pointer
+        }
+
+        @media screen and (min-width: 768px) {
+            .largenav {
+                display: block
+            }
+
+            .smallnav {
+                display: none
+            }
+
+            .smallsearch {
+                margin: 0px
+            }
+        }
+    </style>
+    <style media="screen">
+    .jumbotron {
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+  </style>
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("9Gy5wZwP5zfG6cCdO");
+       })();
+    </script>
+
+</head>
+
+    <body>
+    <!-- Begin Body Wrapper -->
+    <div class="body-wrapper">
+        <!-- Begin Header Area -->
+        <header>
+                <!-- Begin Header Top Area -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Begin Header Top Left Area -->
+                            <div class="col-lg-3 col-md-4">
+                                <div class="header-top-left">
+                                    <ul class="phone-wrap">
+                                        <li><span>Tel Enquiry:</span><a href="tel:254796003975">(+254) 796 003 975</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Left Area End Here -->
+
+                            <!-- Begin Header Top Right Area -->
+                            <div class="col-lg-9 col-md-8">
+                                <div class="header-top-right">
+                                    <ul class="ht-menu">
+                                        <!-- Begin Setting Area -->
+                                        <li>
+                                            <div class="ht-setting-trigger"><span>Setting</span></div>
+                                            <div class="setting ht-setting">
+                                                <ul class="ht-setting-list">
+                                                    {%if request.user.is_authenticated%}
+                                                        <li><a href="/my-profile">Account</a></li>
+                                                        <li><a href="/my-order">Orders</a></li>
+                                                        <li><a href="/customer-address">Checkout</a></li>
+                                                        <li><a href="logout">Logout</a></li>
+                                                    {% else %}
+                                                        <li><a href="/adminclick">Admin</a></li>
+                                                        <li><a href="/customerlogin">Signin</a></li>
+                                                        <li><a href="/customersignup">Register</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Setting Area End Here -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Right Area End Here -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Top Area End Here -->
+
+                <!-- Begin Header Middle Area -->
+                <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Begin Header Logo Area -->
+                            <div class="col-lg-3">
+                                <div class="logo pb-sm-30 pb-xs-30">
+                                    <a href="/">
+                                        <img src="{% static 'images/menu/logo/logo.jpg' %}" alt="" style="width:200px; height:80px">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Header Logo Area End Here -->
+
+                            <!-- Begin Header Middle Right Area -->
+                            <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
+                                <!-- Begin Header Middle Searchbox Area -->
+                                <form action="{% url 'search' %}" method="get">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <input type="search" id="query" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" ></i></button>
+                                    </div>
+                                </form>
+                                <!-- Header Middle Searchbox Area End Here -->
+                                </br>
+                                <!-- Begin Header Middle Right Area -->
+                                {%if request.user.is_authenticated%}
+                                <div class="header-middle-right">
+                                    <ul class="hm-menu">
+                                        <!-- Begin Header Mini Cart Area -->
+                                        <li class="hm-minicart">
+                                            <div class="hm-minicart-trigger">
+                                                <span class="item-icon"></span>
+                                                <span class="item-text">Cart
+                                                    <span class="cart-item-count" style="background:#00b5e2 !important">{{ product_count_in_cart }}</span>
+                                                </span>
+                                            </div>
+                                            <span></span>
+                                            <div class="minicart">
+                                                <div class="minicart-button">
+                                                    <a href="/cart" class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                                        <span>View Cart</span>
+                                                    </a></br>
+                                                    <a href="/customer-address" class="li-button li-button-fullwidth li-button-sm">
+                                                        <span>Checkout</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Header Mini Cart Area End Here -->
+                                    </ul>
+                                </div>
+                                {% endif %}
+                                <!-- Header Middle Right Area End Here -->
+                            </div>
+                            <!-- Header Middle Right Area End Here -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Middle Area End Here -->
+
+                <!-- Begin Header Bottom Area -->
+                <div class="header-bottom header-sticky d-none d-lg-block" style="background:#00b5e2 !important">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Begin Header Bottom Menu Area -->
+                                <div class="hb-menu hb-menu-2 d-xl-block">
+                                    <nav>
+                                        <ul>
+                                            <li class="dropdown-holder">
+                                                <a href="/">Home</a>
+                                            </li>
+
+
+                                            <li><a href="/aboutus">About Us</a></li>
+                                            <li><a href="/contactus">Contact</a></li>
+
+                                            <!-- Begin Header Bottom Menu Information Area -->
+                                            <li class="hb-info f-right p-0 d-sm-none d-lg-block">
+                                                <span>Nairobi, Kenya</span>
+                                            </li>
+                                            <!-- Header Bottom Menu Information Area End Here -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Header Bottom Menu Area End Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Bottom Area End Here -->
+
+                <!-- Begin Mobile Menu Area -->
+                <div class="mobile-menu-area d-lg-none d-xl-none col-12">
+                    <div class="container" style="padding-top:5em">
+                        <div class="row">
+                            <div class="mobile-menu">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu Area End Here -->
+            </header>
+        <!-- Header Area End Here -->
+    {% if signupSuccess %}
+        {{ signupSuccess }}
+    {% endif %}
+
+        {% block content %}
+        {% endblock %}
+        <!-- Begin Footer Area -->
+        <div class="footer">
+                <!-- Begin Footer Static Top Area -->
+                <div class="footer-static-top">
+                    <div class="container">
+                        <!-- Begin Footer Shipping Area -->
+                        <div class="footer-shipping pt-60 pb-55 pb-xs-25">
+                            <div class="row">
+                                <!-- Begin Shipping Inner Box Area -->
+                                <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                                    <div class="li-shipping-inner-box">
+                                        <div class="shipping-icon">
+                                            <img src="{% static 'images/shipping-icon/1.png' %}" alt="Shipping Icon">
+                                        </div>
+                                        <div class="shipping-text">
+                                            <h2>Quick Delivery</h2>
+                                            <p>Track delivery dates.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Shipping Inner Box Area End Here -->
+                                <!-- Begin Shipping Inner Box Area -->
+                                <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                                    <div class="li-shipping-inner-box">
+                                        <div class="shipping-icon">
+                                            <img src="{% static 'images/shipping-icon/2.png' %}" alt="Shipping Icon">
+                                        </div>
+                                        <div class="shipping-text">
+                                            <h2>Safe Payment</h2>
+                                            <p>Pay with Lipa na Mpesa the Kenya's most popular and secure payment methods.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Shipping Inner Box Area End Here -->
+                                <!-- Begin Shipping Inner Box Area -->
+                                <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                                    <div class="li-shipping-inner-box">
+                                        <div class="shipping-icon">
+                                            <img src="{% static 'images/shipping-icon/3.png' %}" alt="Shipping Icon">
+                                        </div>
+                                        <div class="shipping-text">
+                                            <h2>Shop with Confidence</h2>
+                                            <p>Our Buyer Protection covers your purchase from click to delivery.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Shipping Inner Box Area End Here -->
+                                <!-- Begin Shipping Inner Box Area -->
+                                <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                                    <div class="li-shipping-inner-box">
+                                        <div class="shipping-icon">
+                                            <img src="{% static 'images/shipping-icon/4.png' %}" alt="Shipping Icon">
+                                        </div>
+                                        <div class="shipping-text">
+                                            <h2>24/7 Help Center</h2>
+                                            <p>Have a question? Call our quick to response support team.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  Shipping Inner Box Area End Here -->
+                            </div>
+                        </div>
+                        <!-- Footer Shipping Area End Here -->
+                    </div>
+                </div>
+                <!-- Footer Static Top Area End Here -->
+
+                <!-- Begin Footer Static Middle Area -->
+                <div class="footer-static-middle">
+                    <div class="container">
+                        <div class="footer-logo-wrap pt-50 pb-35">
+                            <div class="row">
+                                <!-- Begin Footer Logo Area -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="footer-logo">
+                                        <img src="{% static 'images/menu/logo/logo.jpg' %}" alt="Footer Logo" style="width:200px; height:80px">
+                                        <p class="info">
+                                            We are a devoted team with outstanding customer service.
+                                        </p>
+                                    </div>
+                                    <ul class="des">
+                                        <li>
+                                            <span>Address: </span>
+                                            Nairobi, Kenya
+                                        </li>
+                                        <li>
+                                            <span>Phone: </span>
+                                            <a href="tel:254796003975">(+254) 796 003 975</a>
+                                        </li>
+                                        <li>
+                                            <span>Email: </span>
+                                            <a href="mailto://panmucyber@gmail.com">panmucyber@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Logo Area End Here -->
+
+                                <!-- Begin Footer Block Area -->
+                                <div class="col-lg-2 col-md-3 col-sm-6">
+                                    <div class="footer-block">
+                                        <h3 class="footer-block-title">Our Shop</h3>
+                                        <ul>
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="products">Products</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Footer Block Area End Here -->
+
+                                <!-- Begin Footer Block Area -->
+                                <div class="col-lg-2 col-md-3 col-sm-6">
+                                    <div class="footer-block">
+                                        <h3 class="footer-block-title">PanmuCyber</h3>
+                                        <ul>
+                                            <li><a href="about">About us</a></li>
+                                            <li><a href="contact">Contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Footer Block Area End Here -->
+
+                                <!-- Begin Footer Block Area -->
+                                <div class="col-lg-4">
+                                    <div class="footer-block">
+                                        <h3 class="footer-block-title">Reach Us</h3>
+                                        <ul class="social-link">
+                                            <li class="twitter">
+                                                <a href="https://twitter.com/" data-toggle="tooltip" target="_blank" title="Twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+
+                                            <li class="google-plus">
+                                                <a href="https://www.plus.google.com/discover" data-toggle="tooltip" target="_blank" title="Google +">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li class="facebook">
+                                                <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li class="youtube">
+                                                <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
+                                                    <i class="fa fa-youtube"></i>
+                                                </a>
+                                            </li>
+                                            <li class="instagram">
+                                                <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
+                                                    <i class="fa fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Footer Block Area End Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Static Middle Area End Here -->
+            </div>
+        <!-- Footer Area End Here -->
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- new script tags -->
+    <!-- jQuery-V1.12.4 -->
+        <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <!-- Popper js -->
+        <script src="{% static 'js/vendor/popper.min.js' %}"></script>
+        <!-- Bootstrap V4.1.3 Fremwork js -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- Meanmenu js -->
+        <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+        <!-- Wow.min js -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <!-- Slick Carousel js -->
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <!-- Owl Carousel-2 js -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- Magnific popup js -->
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Isotope js -->
+        <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+        <!-- Imagesloaded js -->
+        <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <!-- Mixitup js -->
+        <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+        <!-- Countdown -->
+        <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+        <!-- Counterup -->
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <!-- Waypoints -->
+        <script src="{% static 'js/waypoints.min.js' %}"></script>
+        <!-- Barrating -->
+        <script src="{% static 'js/jquery.barrating.min.js' %}"></script>
+        <!-- Jquery-ui -->
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <!-- Venobox -->
+        <script src="{% static 'js/venobox.min.js' %}"></script>
+        <!-- Nice Select js -->
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <!-- ScrollUp js -->
+        <script src="{% static 'js/scrollUp.min.js' %}"></script>
+        <!-- Main/Activator js -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <!-- Google Map -->
+        <script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+
+</body>
+
+</html>

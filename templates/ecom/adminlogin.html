@@ -1,0 +1,37 @@
+{% extends 'ecom/base.html' %}
+{% block title %}Panmucyber Store - Signin {% endblock%}
+{% load widget_tweaks %}
+{% block content %}
+
+            <!-- Begin Login Content Area -->
+            <div class="page-section mb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                            <form action="#" method="POST">
+                                {% if error %}
+                                <small style="color:red"> {{ error.field_error }} </small>
+                                <small style="color:green"> {{ error.success }} </small>
+                                {% endif %}
+                                {% csrf_token %}
+                                <div class="login-form">
+                                    <h4 class="login-title">Admin Login</h4>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mb-20">
+                                            <label>UserName</label>
+                                            {% render_field form.username class="form-control" placeholder="Username" autocomplete="off" %}
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <label>Password</label>
+                                            {% render_field form.password class="form-control" placeholder="Password" %}
+                                            <input type="submit" name="" value="Login" >
+                                        </div>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Content Area End Here -->
+{% endblock %}

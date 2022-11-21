@@ -20,7 +20,7 @@ class Customer(models.Model):
         if self.profile_pic and hasattr(self.profile_pic, 'url'):
             return self.profile_pic.url
         else:
-            return "/static/media/profile_pic/CustomerProfilePic/mouse.jpg"
+            return "media/profile_pic/CustomerProfilePic/user.png"
 
     @property
     def get_id(self):
